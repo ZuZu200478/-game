@@ -287,7 +287,7 @@ def start_multiplayer_game(nickname, avatar_image):
     # 連接伺服器
     def connect_to_server():
         client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        client_socket.connect(('localhost', 12345))
+        client_socket.connect(('localhost', 60000))
         return client_socket
 
     def display_question_and_choices(question, choices):
