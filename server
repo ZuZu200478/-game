@@ -135,7 +135,7 @@ def game_thread():
 # 啟動伺服器
 def start_server():
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_socket.bind(('localhost', 12345))
+    server_socket.bind(('localhost', 60000))
     server_socket.listen(2)
     print("Server is waiting for connections...")
     player_nicknames = {}
