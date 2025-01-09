@@ -47,8 +47,8 @@ question_bank = [
     ]
 
 
-
-scores = [0, 0] # 遊戲分數
+# 追蹤遊戲分數
+scores = [0, 0]
 players = []  # 玩家連接的客戶端
 questions =random.sample(question_bank, 10)  # 隨機選擇10道問題
 
@@ -135,7 +135,7 @@ def game_thread():
 # 啟動伺服器
 def start_server():
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_socket.bind(('localhost', 60000))
+    server_socket.bind(('localhost', 12345))
     server_socket.listen(2)
     print("Server is waiting for connections...")
     player_nicknames = {}
@@ -165,6 +165,8 @@ def start_server():
     # 當兩位玩家連接後，開始遊戲
     if all_players_connected():
         print("Both players connected. Starting game...")
+        scores[0]=0
+        scores[1]=0
         threading.Thread(target=game_thread).start()
 
 if __name__ == "__main__":
